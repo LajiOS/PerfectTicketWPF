@@ -1,0 +1,3 @@
+0001    cc    ccpassword    08    100
+0002    db    dbpassword    04    150
+0003    yy    yypassword    02    120

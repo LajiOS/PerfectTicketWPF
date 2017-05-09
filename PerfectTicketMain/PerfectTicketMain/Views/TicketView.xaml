@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="PerfectTicketMain.Views.TicketView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PerfectTicketMain.Views"
+             mc:Ignorable="d" 
+             x:Name="TicketUserControl"
+             d:DesignHeight="300" d:DesignWidth="350">
+    <ScrollViewer>
+        <Grid>
+            <StackPanel>
+                <ListView Name="lvTickets" ItemsSource="{Binding}">
+                    <ListView.View>
+                        <GridView >
+                            <GridViewColumn Header="ID" Width="50" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding id}" TextAlignment="Center" Width="40"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Start" Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding start}" TextAlignment="Center" Width="50"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Termianl" Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding terminal}" TextAlignment="Center" Width="50"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Sold" Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding isSold}" TextAlignment="Center" Width="50"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Owner" Width="70" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding owner}" TextAlignment="Center" Width="50"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
