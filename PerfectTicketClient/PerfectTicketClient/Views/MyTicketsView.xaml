@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PerfectTicketClient.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400">
-    <ScrollViewer>
+    <ScrollViewer PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
         <Grid>
             <StackPanel>
                 <ListView Name="myTickets" ItemsSource="{Binding}" MouseDoubleClick="myTicket_DoubleClick">

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              x:Name="TicketUserControl"
              d:DesignHeight="300" d:DesignWidth="400">
-    <ScrollViewer>
+    <ScrollViewer PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
         <Grid>
             <StackPanel>
                 <ListView Name="lvTickets" ItemsSource="{Binding}">
@@ -41,7 +41,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Owner" Width="80" >
+                            <GridViewColumn Header="Owner" Width="70" >
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding owner}" TextAlignment="Center" Width="60"/>

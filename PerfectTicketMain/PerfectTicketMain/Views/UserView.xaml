@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PerfectTicketMain.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <ScrollViewer>
+    <ScrollViewer PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
         <Grid>
             <StackPanel>
                 <ListView Name="lvUsers" ItemsSource="{Binding}">
