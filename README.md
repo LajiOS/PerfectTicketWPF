@@ -8,6 +8,8 @@ Perfect Ticket WPF application.
 * Semaphore
 * MemoryMappedFile (non-persisted)
 * File IO
+* Multi-processes
+* Multi-threading
 * Windows Presentation Foundation
 
 ## Effect
