@@ -22,7 +22,9 @@ namespace PerfectTicketMain.Models
         
         // Station number
         private static int STATION_NUM = 10;
-        
+
+        private static int TICKET_UNIT_PRICE = 10;
+
         // ONLY used in semaphore manager MAIN
         // use semaphore to control this
         private int[,] ticketLeft;  
@@ -176,6 +178,7 @@ namespace PerfectTicketMain.Models
         public void closeEngine()
         {
             fileManager.writeTicketFile(ticketLab);
+            fileManager.writeUserFile(userLab);
         }
 
         public void refreshTicketData()
@@ -196,8 +199,10 @@ namespace PerfectTicketMain.Models
         // SUB THREADING |-----
         private bool sellChosenTicket(TicketInfo chosenTicket, int userID)
         {
+            UserInfo user = userLab.getUserList().Find(u => u.id == userID);
             chosenTicket.isSold = true;
             chosenTicket.owner = userID;
+            user.balance -= Math.Abs(chosenTicket.start - chosenTicket.terminal) * TICKET_UNIT_PRICE;
             return true;
         }
         private TicketInfo chooseTicketToSell(int start, int terminal)
@@ -219,6 +224,8 @@ namespace PerfectTicketMain.Models
             {
                 ticketToBeRefund.isSold = false;
                 ticketToBeRefund.owner = 0;
+                UserInfo user = userLab.getUserList().Find(u => u.id == userID);
+                user.balance += Math.Abs(ticketToBeRefund.start - ticketToBeRefund.terminal) * TICKET_UNIT_PRICE;
                 return true;
             } else
             {

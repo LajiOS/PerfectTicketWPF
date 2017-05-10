@@ -123,7 +123,6 @@ namespace PerfectTicketClient.Models
             }
         }
 
-
         private bool judgeUseCanAfford(int start, int terminal)
         {
             int ticketPrice = Math.Abs(start - terminal) * TICKET_UNIT_PRICE;

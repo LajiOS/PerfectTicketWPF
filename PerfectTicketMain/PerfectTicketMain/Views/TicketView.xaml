@@ -6,45 +6,45 @@
              xmlns:local="clr-namespace:PerfectTicketMain.Views"
              mc:Ignorable="d" 
              x:Name="TicketUserControl"
-             d:DesignHeight="300" d:DesignWidth="350">
+             d:DesignHeight="300" d:DesignWidth="400">
     <ScrollViewer>
         <Grid>
             <StackPanel>
                 <ListView Name="lvTickets" ItemsSource="{Binding}">
                     <ListView.View>
                         <GridView >
-                            <GridViewColumn Header="ID" Width="50" >
+                            <GridViewColumn Header="ID" Width="60" >
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding id}" TextAlignment="Center" Width="40"/>
+                                        <TextBlock Text="{Binding id}" TextAlignment="Center" Width="50"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header="Start" Width="70">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding start}" TextAlignment="Center" Width="50"/>
+                                        <TextBlock Text="{Binding start}" TextAlignment="Center" Width="60"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header="Termianl" Width="70">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding terminal}" TextAlignment="Center" Width="50"/>
+                                        <TextBlock Text="{Binding terminal}" TextAlignment="Center" Width="60"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Sold" Width="70">
+                            <GridViewColumn Header="Sold" Width="80">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding isSold}" TextAlignment="Center" Width="50"/>
+                                        <TextBlock Text="{Binding isSold}" TextAlignment="Center" Width="70"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Owner" Width="70" >
+                            <GridViewColumn Header="Owner" Width="80" >
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding owner}" TextAlignment="Center" Width="50"/>
+                                        <TextBlock Text="{Binding owner}" TextAlignment="Center" Width="60"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

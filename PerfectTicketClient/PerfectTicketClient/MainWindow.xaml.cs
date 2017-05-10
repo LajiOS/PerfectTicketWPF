@@ -39,7 +39,6 @@ namespace PerfectTicketClient
             InitializeComponent();
             getArguments();
             perfectEngine = new PerfectEngineClient(user, isAutoMode);
-
         }
 
         private void getArguments()
@@ -82,10 +81,10 @@ namespace PerfectTicketClient
             passwordTextBox.Text = user.password;
             if (isAutoMode)
             {
-                loginButton_Click(null, null);
-                perfectEngine.autoModeScript();
+                // loginButton_Click(null, null);
+                // perfectEngine.autoModeScript();
 
-                this.Close();
+                // this.Close();
             }
         }
 
@@ -109,6 +108,8 @@ namespace PerfectTicketClient
             DataContext = myTicketsView;
 
             ticketUserControl.Visibility = Visibility.Visible;
+
+            // perfectEngine.autoModeScript();
         }
 
         private void usernameTextBox_TextChanged(object sender, TextChangedEventArgs e)

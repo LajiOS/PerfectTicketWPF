@@ -19,6 +19,8 @@ namespace PerfectTicketMain.Models.File
         private static int USER_ATTRIBUTE_NUM = 5;
         private static int TICKET_ATTRIBUTE_NUM = 5;
 
+        private static String LINE_SEPARATOR = "    ";           // 4 spaces
+
         private TicketLab ticketLab;
         private UserLab userLab;
 
@@ -30,7 +32,7 @@ namespace PerfectTicketMain.Models.File
 
         private UserInfo parseStringToUser(String consumerLine)
         {
-            string[] stringSeparators = new string[] { "    " };      // 4 spaces
+            string[] stringSeparators = new string[] { LINE_SEPARATOR };      // 4 spaces
             String[] strs = consumerLine.Split(stringSeparators, USER_ATTRIBUTE_NUM, StringSplitOptions.None);
             int id = Int32.Parse(strs[0]);
             String name = strs[1];
@@ -43,7 +45,7 @@ namespace PerfectTicketMain.Models.File
 
         private TicketInfo parseStringToTicket(String ticketLine)
         {
-            string[] stringSeparators = new string[] { "    " };      // 4 spaces
+            string[] stringSeparators = new string[] { LINE_SEPARATOR }; 
             String[] strs = ticketLine.Split(stringSeparators, TICKET_ATTRIBUTE_NUM, StringSplitOptions.None);
             int id = Int32.Parse(strs[0]);
             int start = Int32.Parse(strs[1]);
@@ -53,7 +55,6 @@ namespace PerfectTicketMain.Models.File
             TicketInfo ticket = new TicketInfo(id, start, terminal, sold, owner);
             return ticket;
         }
-
 
         // Read files
         public UserLab readUserFile()
@@ -107,25 +108,55 @@ namespace PerfectTicketMain.Models.File
             return ticketLab;
         }
 
-        // No deed write user file
+        // 
+
+        private String parseUserToString(UserInfo user)
+        {
+            String userString = String.Empty;
+            userString += user.id;
+            userString += LINE_SEPARATOR;
+            userString += user.name;
+            userString += LINE_SEPARATOR;
+            userString += user.password;
+            userString += LINE_SEPARATOR;
+            userString += user.priority;
+            userString += LINE_SEPARATOR;
+            userString += user.balance;
+
+            return userString;
+        }
         public bool writeUserFile(UserLab userLabToBeWrite)
         {
             this.userLab = userLabToBeWrite;
-            //
-            return false;
+            List<UserInfo> userList = userLab.getUserList();
+            String[] allUserLines = new String[userList.Count];
+            int i = 0;
+            foreach (UserInfo user in userList)
+            {
+                allUserLines[i++] = parseUserToString(user);
+            }
+            try
+            {
+                System.IO.File.WriteAllLines(USER_TABLE_FILENAME, allUserLines);
+                return true;
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                return false;
+            }
         }
 
         private String parseTicketToString(TicketInfo ticket)
         {
             String ticketString = String.Empty;
             ticketString += ticket.id;
-            ticketString += "    ";
+            ticketString += LINE_SEPARATOR;
             ticketString += ticket.start;
-            ticketString += "    ";
+            ticketString += LINE_SEPARATOR;
             ticketString += ticket.terminal;
-            ticketString += "    ";
+            ticketString += LINE_SEPARATOR;
             ticketString += ticket.isSold ? "1" : "0";
-            ticketString += "    ";
+            ticketString += LINE_SEPARATOR;
             ticketString += ticket.owner;
             return ticketString;
         }
@@ -134,7 +165,7 @@ namespace PerfectTicketMain.Models.File
         public bool writeTicketFile(TicketLab ticketLabToBeWrite)
         {
             this.ticketLab = ticketLabToBeWrite;
-            List<TicketInfo> ticketList = ticketLabToBeWrite.getTicketList();
+            List<TicketInfo> ticketList = ticketLab.getTicketList();
             String[] allTicketLines = new String[ticketList.Count];
             int i = 0;
             foreach (TicketInfo ticket in ticketList)
@@ -143,7 +174,7 @@ namespace PerfectTicketMain.Models.File
             }
             try
             {
-                System.IO.File.WriteAllLines(@TICKET_TABLE_FILENAME, allTicketLines);
+                System.IO.File.WriteAllLines(TICKET_TABLE_FILENAME, allTicketLines);
                 return true;
             } catch (Exception error)
             {

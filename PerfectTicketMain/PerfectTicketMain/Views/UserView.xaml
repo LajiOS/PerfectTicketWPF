@@ -12,7 +12,7 @@
                 <ListView Name="lvUsers" ItemsSource="{Binding}">
                     <ListView.View>
                         <GridView >
-                            <GridViewColumn Header="ID" Width="70">
+                            <GridViewColumn Header="ID" Width="80">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding id}" TextAlignment="Center" Width="60"/>
