@@ -21,7 +21,7 @@ namespace PerfectTicketMain.Models.SSemaphore
         // use to create semaphores
         private int[,] ticketLeft;
 
-        // TODO semaphore
+        
         private Semaphore priorityQueueSemFull;
         private Semaphore priorityQueueSemEmpty;
         private Semaphore[] ticketLeftFullSems = new Semaphore[STATION_NUM*STATION_NUM];

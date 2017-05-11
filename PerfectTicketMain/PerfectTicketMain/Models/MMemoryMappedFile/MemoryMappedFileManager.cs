@@ -12,10 +12,10 @@ using PerfectTicketMain.Models.Ticket;
 using PerfectTicketMain.Models.User;
 using PerfectTicketMain.Models.PrioriryQueue;
 
-// TODO: share memory
+
 namespace PerfectTicketMain.Models.MMemoryMappedFile
 {
-    // TODO: map file to share memory
+
     public class MemoryMappedFileManager
     {
         private static String TICKET_MUTEX = "TicketMutex";
@@ -206,7 +206,7 @@ namespace PerfectTicketMain.Models.MMemoryMappedFile
             return false;
         }
 
-        // TODO read ticket lab finished
+        
         public TicketLab readTicketLabMMFChanges()
         {
             ticketLabMMFMutex.WaitOne();

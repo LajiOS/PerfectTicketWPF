@@ -26,6 +26,7 @@ namespace PerfectTicketMain.Models.Ticket
         }
     }
 
+    // Only used in MemoryNappedFile
     public struct TicketInfoStruct
     {
         public int id { get; set; }

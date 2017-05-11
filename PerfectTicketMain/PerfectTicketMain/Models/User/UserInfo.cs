@@ -28,6 +28,7 @@ namespace PerfectTicketMain.Models.User
         }
     }
 
+    // Only used in MemoryMappedFile
     public struct UserInfoStruct
     {
         public int id { get; set; }

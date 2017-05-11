@@ -168,9 +168,9 @@ namespace PerfectTicketMain.Models
             calculateRemainTicket();
             semaphoreManager = new SemaphoreManager(ticketLeft);
 
-            // Create sub threading to listen request priority queue
+            // TODO Create sub threading to listen request priority queue
             // And handle request
-            // TODO
+            // Maybe now is better
             requestHandleThread = new Thread(new ThreadStart(handleRueuestThreadMethod));
             requestHandleThread.Start();
         }

@@ -13,9 +13,12 @@ namespace PerfectTicketMain.Models.File
 
     class FileManager
     {
-        // TODO: USER TICKET Table Name
+        
         private static String USER_TABLE_FILENAME = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\user_table_max.txt";
         private static String TICKET_TABLE_FILENAME = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\ticket_table_max.txt";
+        private static String USER_TABLE_FILENAME_OUT = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\user_table_out.txt";
+        private static String TICKET_TABLE_FILENAME_OUT = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\ticket_table_out.txt";
+
         private static int USER_ATTRIBUTE_NUM = 5;
         private static int TICKET_ATTRIBUTE_NUM = 5;
 
@@ -137,7 +140,7 @@ namespace PerfectTicketMain.Models.File
             }
             try
             {
-                System.IO.File.WriteAllLines(USER_TABLE_FILENAME, allUserLines);
+                System.IO.File.WriteAllLines(USER_TABLE_FILENAME_OUT, allUserLines);
                 return true;
             } catch (Exception error)
             {
@@ -174,7 +177,7 @@ namespace PerfectTicketMain.Models.File
             }
             try
             {
-                System.IO.File.WriteAllLines(TICKET_TABLE_FILENAME, allTicketLines);
+                System.IO.File.WriteAllLines(TICKET_TABLE_FILENAME_OUT, allTicketLines);
                 return true;
             } catch (Exception error)
             {
