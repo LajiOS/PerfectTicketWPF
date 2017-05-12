@@ -14,10 +14,15 @@ namespace PerfectTicketMain.Models.File
     class FileManager
     {
         
-        private static String USER_TABLE_FILENAME = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\user_table_max.txt";
-        private static String TICKET_TABLE_FILENAME = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\ticket_table_max.txt";
-        private static String USER_TABLE_FILENAME_OUT = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\user_table_out.txt";
-        private static String TICKET_TABLE_FILENAME_OUT = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\ticket_table_out.txt";
+        //private static String USER_TABLE_FILENAME = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\user_table_max.txt";
+        //private static String TICKET_TABLE_FILENAME = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\ticket_table_max.txt";
+        //private static String USER_TABLE_FILENAME_OUT = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\user_table_out.txt";
+        //private static String TICKET_TABLE_FILENAME_OUT = "C:\\Users\\Gerry\\Desktop\\Perfetct Ticket Project\\ticket_table_out.txt";
+
+        private static String USER_TABLE_FILENAME = "user_table_max.txt";
+        private static String TICKET_TABLE_FILENAME = "ticket_table_max.txt";
+        private static String USER_TABLE_FILENAME_OUT = "user_table_out.txt";
+        private static String TICKET_TABLE_FILENAME_OUT = "ticket_table_out.txt";
 
         private static int USER_ATTRIBUTE_NUM = 5;
         private static int TICKET_ATTRIBUTE_NUM = 5;

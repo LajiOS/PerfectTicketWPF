@@ -18,8 +18,9 @@ namespace PerfectTicketMain.Models
     public class PerfectTicketEngine
     {
         // sub wpf file name
-        private static string SUB_WPF_FILENAME = "C:\\Users\\Gerry\\Documents\\Visual Studio 2017\\Projects\\PerfectTicketClient\\PerfectTicketClient\\bin\\Debug\\PerfectTicketClient.exe";
-        
+        //private static string SUB_WPF_FILENAME = "C:\\Users\\Gerry\\Documents\\Visual Studio 2017\\Projects\\PerfectTicketClient\\PerfectTicketClient\\bin\\Debug\\PerfectTicketClient.exe";
+        private static string SUB_WPF_FILENAME = "PerfectTicketClient.exe";
+
         // Station number
         private static int STATION_NUM = 10;
 
