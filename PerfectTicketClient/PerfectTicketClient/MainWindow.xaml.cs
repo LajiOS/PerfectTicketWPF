@@ -58,12 +58,11 @@ namespace PerfectTicketClient
             String[] strs = args.Split(stringSeparators, ARGC, StringSplitOptions.None);
             try
             {
-                isAutoMode = Convert.ToBoolean(strs[0]);
-                int userID = Convert.ToInt32(strs[1]);
-                String name = strs[2];
-                String password = strs[3];
-                int priority = Convert.ToInt32(strs[4]);
-                int balance = Convert.ToInt32(strs[5]);
+                int userID = Convert.ToInt32(strs[0]);
+                String name = strs[1];
+                String password = strs[2];
+                int priority = Convert.ToInt32(strs[3]);
+                int balance = Convert.ToInt32(strs[4]);
                 user = new UserInfo(userID, name, password, priority, balance);
             }
             catch (Exception error)
@@ -79,13 +78,6 @@ namespace PerfectTicketClient
             remainsLab = perfectEngine.getRemainLab();
             usernameTextBox.Text = user.name;
             passwordTextBox.Text = user.password;
-            if (isAutoMode)
-            {
-                // loginButton_Click(null, null);
-                // perfectEngine.autoModeScript();
-
-                // this.Close();
-            }
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)

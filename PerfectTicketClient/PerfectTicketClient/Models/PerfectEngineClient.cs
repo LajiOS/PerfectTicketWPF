@@ -28,7 +28,7 @@ namespace PerfectTicketClient.Models
         private TicketRemainLab remainsLab;
 
 
-        private Thread requestHandleThread;
+        //private Thread requestHandleThread;
 
         private UserInfo currentUser;
 

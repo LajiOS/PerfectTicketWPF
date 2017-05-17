@@ -11,6 +11,7 @@ using PerfectTicketMain.Models.User;
 using PerfectTicketMain.Models.Ticket;
 using PerfectTicketMain.Models.PrioriryQueue;
 using PerfectTicketMain.Models.SSemaphore;
+using System.Windows;
 
 namespace PerfectTicketMain.Models
 {
@@ -108,14 +109,14 @@ namespace PerfectTicketMain.Models
             return randomUserList;
         }
 
-        private void callWpf(UserInfo user, bool isAutoMode)
+        private void callWpf(UserInfo user)
         {
             var args = string.Empty;
             // Convert values
             try
             {
-                args = Convert.ToString(isAutoMode);
-                args += "#";
+                //args = Convert.ToString(isAutoMode);
+                //args += "#";
                 args += Convert.ToString(user.id);
                 args += "#";        // argument sepearater
                 args += user.name;
@@ -142,7 +143,7 @@ namespace PerfectTicketMain.Models
             // HANLDE waitOne() method to do it
         }
 
-        private void callUserClients(int userNum, bool isAutoMode)
+        private void callUserClients(int userNum)
         {
             List<UserInfo> userList = userLab.getUserList();
             if (userList.Count < userNum)
@@ -153,14 +154,14 @@ namespace PerfectTicketMain.Models
             HashSet<UserInfo> choosenUsers = randomChooseUsers(userNum);
             foreach(UserInfo user in choosenUsers)
             {
-                callWpf(user, isAutoMode);
+                callWpf(user);
             }
         }
         
         // Create memorymappedfile and semaphore
-        public void startEngine(int userNum, bool isAutoMode)
+        public void startEngine(int userNum)
         {
-            callUserClients(userNum, isAutoMode);
+            callUserClients(userNum);
 
             // Create mmf
             firstMapLabsAndPQ();
@@ -259,10 +260,12 @@ namespace PerfectTicketMain.Models
 
         private void handleRueuestThreadMethod()
         {
+            MessageBoxButton okButton = MessageBoxButton.OK;
             while (true)
             {
                 // P Full
                 semaphoreManager.P_PQSemFull();
+                Application.Current.Dispatcher.Invoke(() => MessageBox.Show("Handling Request.", "Main", okButton));
 
                 // get the highest priority request and handle
                 requestPQ = memoryMappedFileManager.readReqPQMMFChanges();

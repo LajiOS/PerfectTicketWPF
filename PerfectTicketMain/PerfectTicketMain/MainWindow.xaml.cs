@@ -34,7 +34,6 @@ namespace PerfectTicketMain
         private UserLab userLab;
         private TicketLab ticketLab;
 
-        private bool isAutoMode = false;
         private int userNum;
         private static int DEFAULT_USER_NUM = 3;
 
@@ -55,15 +54,6 @@ namespace PerfectTicketMain
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /// TODO user experience
-            //while (loadFilesThread.IsAlive)
-            //{
-            // 
-            //}
-            // loadingDataTextBlock.Visibility = Visibility.Hidden;
-            // dockPanel.Visibility = Visibility.Visible;
-            // userControl.Visibility = Visibility.Visible;
-
             // get ticket lab user lab
             ticketLab = perfectTicket.getTicketLab();
             userLab = perfectTicket.getUserLab();
@@ -72,11 +62,6 @@ namespace PerfectTicketMain
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             perfectTicket.closeEngine();
-        }
-
-        private void AutoModeCheckBox_Clicked(object sender, RoutedEventArgs e)
-        {
-            isAutoMode = !isAutoMode;
         }
 
         private void userNumTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -93,11 +78,8 @@ namespace PerfectTicketMain
 
         private void Start_Clicked(object sender, RoutedEventArgs e)
         {
-            // check if the isAutoMode is right
-            Console.WriteLine(isAutoMode);
-
             // Engine start
-            perfectTicket.startEngine(userNum, isAutoMode);
+            perfectTicket.startEngine(userNum);
 
             // show buttons
             userViewButton.Visibility = Visibility.Visible;
@@ -105,7 +87,6 @@ namespace PerfectTicketMain
             produceTicketButton.Visibility = Visibility.Visible;
 
             // hide controls
-            autoModeCheckBox.IsEnabled = false;
             userNumTextBox.IsEnabled = false;
             startButton.IsEnabled = false;
         }
@@ -128,13 +109,15 @@ namespace PerfectTicketMain
             NewTicketWindow newTicketW = new NewTicketWindow();
             newTicketW.Owner = this;
             newTicketW.ShowDialog();
-                if (newTicketW.valueIsOK) {
+            MessageBoxButton okButton = MessageBoxButton.OK;
+
+            if (newTicketW.valueIsOK) {
                     int start = newTicketW.start;
                     int terminal = newTicketW.terminal;
 
                     if (perfectTicket.producerAddRequest(start, terminal))
                     {
-                        MessageBox.Show("Request issued");
+                        MessageBox.Show("Request issued", "Main", okButton);
                         perfectTicket.refreshTicketData();
                         ticketLab = perfectTicket.getTicketLab();
                     }

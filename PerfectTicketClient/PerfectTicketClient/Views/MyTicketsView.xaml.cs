@@ -52,19 +52,19 @@ namespace PerfectTicketClient.Views
 
         private void myTicket_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // MessageBox.Show(Convert.ToString(myTickets.SelectedItems.Count));
-            // MessageBox.Show(Convert.ToString(myTickets.SelectedItems[0]));
             TicketInfo selectedTicket = (TicketInfo) myTickets.SelectedItems[0];
             MessageBoxResult result;
-            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxButton yesnoButton = MessageBoxButton.YesNo;
+            MessageBoxButton okButton = MessageBoxButton.OK;
             MessageBoxImage question = MessageBoxImage.Question;
 
-            result = MessageBox.Show(REFUND_QUESTION+selectedTicket.id, "REFUND", button, question);
+            result = MessageBox.Show(REFUND_QUESTION+selectedTicket.id, "REFUND", yesnoButton, question);
             if (result == MessageBoxResult.Yes)
             {
                 if (perfectEngine.addRequest(selectedTicket, null, false))
                 {
-                    MessageBox.Show("Request issued");
+                   
+                    MessageBox.Show("Request issued", "Client", okButton);
                     perfectEngine.startEngine();
                     myTicketLab = perfectEngine.getMyTicketLab();
                     remainsLab = perfectEngine.getRemainLab();
@@ -72,7 +72,7 @@ namespace PerfectTicketClient.Views
                     balanceTextBlock.Text = Convert.ToString(user.balance);
                 } else
                 {
-                    MessageBox.Show("Request rejected");
+                    MessageBox.Show("Request rejected", "Client", okButton);
                 }
             }
         }

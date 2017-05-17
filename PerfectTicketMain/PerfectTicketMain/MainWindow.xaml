@@ -28,15 +28,16 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <!--<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" x:Name="loadingDataTextBlock" Text="Loading data, please wait..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>-->
         <DockPanel Background="LightGray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" x:Name="dockPanel">
             <StackPanel>
-                <CheckBox  VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="autoModeCheckBox" Content="Auto Mode" Margin="10,60,10,0" Click="AutoModeCheckBox_Clicked" FontSize="14"/>
-                <TextBox x:Name="userNumTextBox" Margin="10,10,10,0" TextChanged="userNumTextBox_TextChanged" FontSize="14"/>
-                <Button x:Name="startButton" Content="Start" Click="Start_Clicked" Margin="10,10,10,0" FontSize="14" Height="25"/>
+                <StackPanel Orientation="Horizontal" Margin="10,80,10,0">
+                    <Label x:Name="userNumLabel" Content="Users Num:" Margin="0,10,8,10" FontSize="14"/>
+                    <TextBox x:Name="userNumTextBox"  TextChanged="userNumTextBox_TextChanged" FontSize="14" Width="20" Height="25" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" SelectionBrush="#FFF3F9FE"/>
+                </StackPanel>
+                <Button x:Name="startButton" Content="Start" Click="Start_Clicked" Margin="10,8,10,0" FontSize="14" Height="25"/>
                 <Button x:Name="userViewButton" Content="All Users" Click="UserView_Clicked" Margin="10,10,10,0" Height="25" Visibility="Hidden"/>
-                <Button x:Name="ticketViewButton" Content="All Tickets" Click="TicketView_Clicked" Margin="10,10,10,0" Visibility="Hidden" Height="25"/>
-                <Button x:Name="produceTicketButton" Content="Produce Ticket" Click="produceTicketButton_Clicked" Margin="10,10,10,0"  Height="25" Visibility="Hidden"/>
+                <Button x:Name="ticketViewButton" Content="All Tickets" Click="TicketView_Clicked" Margin="10,8,10,0" Visibility="Hidden" Height="25"/>
+                <Button x:Name="produceTicketButton" Content="Produce Ticket" Click="produceTicketButton_Clicked" Margin="10,8,10,0"  Height="25" Visibility="Hidden"/>
             </StackPanel>
         </DockPanel>
         <ContentControl x:Name="userControl" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
