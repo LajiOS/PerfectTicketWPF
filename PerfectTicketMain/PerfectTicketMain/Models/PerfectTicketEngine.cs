@@ -265,7 +265,7 @@ namespace PerfectTicketMain.Models
             {
                 // P Full
                 semaphoreManager.P_PQSemFull();
-                Application.Current.Dispatcher.Invoke(() => MessageBox.Show("Handling Request.", "Main", okButton));
+                // Application.Current.Dispatcher.Invoke(() => MessageBox.Show("Handling Request.", "Main", okButton));
 
                 // get the highest priority request and handle
                 requestPQ = memoryMappedFileManager.readReqPQMMFChanges();
